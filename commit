@@ -1,3 +1,4 @@
 #!/bin/bash
 git add --all
 git commit -am "$1 "
+git push --set-upstream github.com:avi9526/avi9526-libs.git master
