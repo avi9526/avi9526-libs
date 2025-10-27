@@ -22,7 +22,7 @@
 // #include <cassert>
 // #include <cstdarg>
 // #include <cstddef>
-// #include <cstdint>
+#include <cstdint>
 // #include <iostream>
 // #include <limits>
 #include <math.h>
@@ -30,7 +30,7 @@
 // #include <type_traits>
 // #include <typeinfo>
 #include "std_parts.h"
-#include <Arduino.h>
+//#include <Arduino.h>
 #include <new>
 
 template <class Numeric_type> Numeric_type GCD(Numeric_type A, Numeric_type B) {
