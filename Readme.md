@@ -18,7 +18,7 @@ auto w1 = A1.Weight(); // Get the weight (type: bool, value: true)
 auto A3 = A2 / A1; // Division by zero is avoided; A3 is invalid and A3.Value() == A2.Value()
 
 Weighted_type<byte, bool> b1(255);
-auto b2 = b1 + 1; // b2 is invalid
+auto b2 = b1 + 1; // b2 is invalid due to overflow of byte type
 ```
 
 Since A3 is invalid, all comparison operators will return false regardless of the value.
@@ -35,14 +35,6 @@ Weight can be a float:
 ```cpp
 Weighted_type<float, float> F1(1.0); // Value is 1.0, weight is float(true)
 Weighted_type<float, float> F2(0.1, 1.0); // Value is 1.0, weight is 0.1
-```
-
-Failsafe code without checks:
-
-```
-Weighted_type<byte, bool> A1(255);
-auto A2 = A1 + 1; // A2 is invalid
-
 ```
 
 # `Array_of`
