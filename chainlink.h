@@ -75,8 +75,8 @@ protected:
   void Suicide_if_abandoned();
 
 private:
-  Link_pointer 🡑;
-  Link_pointer 🡓;
+  Link_pointer _Up;
+  Link_pointer _Down;
   bool _Suicidal;
 };
 

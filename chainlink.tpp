@@ -31,7 +31,7 @@ Chain_link::For_each(Functor F)
   while (Current.Valid()) {
     F(Current.Value());
     Current = Current.Value()->Downlink();
-    if (Current.Value() == First) {
+    if (Current == First) {
       break; // Prevent loop
     }
   }

@@ -37,6 +37,7 @@ public:
   bool Adopt(const Some_type &Pointer, const size_t &Size_in_bytes,
              const bool Is_allocated = false);
   template <class Some_type> bool Adopt(const Some_type &StaticArray);
+  void Adopt_array_end(const Weighted_size& New_end);
   void Free();
   void Abandon(const bool &DestroyElements = false);
   void Free_or_abandon();

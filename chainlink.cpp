@@ -29,8 +29,8 @@ Chain_link::Create(Chain_link& Connect_to)
 }
 
 Chain_link::Chain_link()
-  : 🡑()
-  , 🡓()
+  : _Up()
+  , _Down()
   , _Suicidal(false)
 {
 }
@@ -122,37 +122,37 @@ Chain_link::Disconnect_downlink()
 const Chain_link::Link_pointer&
 Chain_link::Uplink() const
 {
-  return 🡑;
+  return _Up;
 }
 
 void
 Chain_link::Uplink(const Link_pointer& New_uplink)
 {
-  🡑 = New_uplink;
+  _Up = New_uplink;
 }
 
 void
 Chain_link::Forget_uplink()
 {
-  🡑.Reset();
+  _Up.Reset();
 }
 
 const Chain_link::Link_pointer&
 Chain_link::Downlink() const
 {
-  return 🡓;
+  return _Down;
 }
 
 void
 Chain_link::Downlink(const Link_pointer& New_downlink)
 {
-  🡓 = New_downlink;
+  _Down = New_downlink;
 }
 
 void
 Chain_link::Forget_downlink()
 {
-  🡓.Reset();
+  _Down.Reset();
 }
 
 Chain_link::Link_pointer

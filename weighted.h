@@ -22,22 +22,23 @@
 #include "weightedbase.h"
 
 // WeigthType must be bool-compatible
-template <class Value_type, class Weight_type>
-class Weighted_type : public Weighted_base<Weight_type> {
+template<class Value_type, class Weight_type>
+class Weighted_type : public Weighted_base<Weight_type>
+{
 public:
   using Parent_type = Weighted_base<Weight_type>;
 
   Weighted_type();
 
-  Weighted_type(const Weighted_type<Value_type, Weight_type> &Val);
+  Weighted_type(const Weighted_type<Value_type, Weight_type>& Val);
 
   Weighted_type(Value_type Value);
   Weighted_type(Weight_type Weight, Value_type Value);
 
   ~Weighted_type();
 
-  Value_type &Value();
-  const Value_type &Value() const;
+  Value_type& Value();
+  const Value_type& Value() const;
 
   virtual void Reset() override;
 
@@ -48,8 +49,8 @@ public:
   void Average_from(Weighted_type<Value_type, Weight_type> W1,
                     Weighted_type<Value_type, Weight_type> W2);
 
-  Weighted_type<Value_type, Weight_type> &
-  operator=(const Weighted_type<Value_type, Weight_type> &Val);
+  Weighted_type<Value_type, Weight_type>& operator=(
+    const Weighted_type<Value_type, Weight_type>& Val);
 
   operator Value_type();
 
@@ -59,148 +60,160 @@ private:
   Value_type _Value;
 };
 //------------------------------------------------------------------------------
-template <class Value_type, class Weight_type, class Another_type>
-bool operator<(const Weighted_type<Value_type, Weight_type> &V1,
-               const Weighted_type<Another_type, Weight_type> &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator<(const Weighted_type<Value_type, Weight_type>& V1,
+          const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type>
-bool operator<(const Weighted_type<Value_type, Weight_type> &V1,
-               const Value_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator<(const Weighted_type<Value_type, Weight_type>& V1,
+          const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
-bool operator<=(const Weighted_type<Value_type, Weight_type> &V1,
-                const Weighted_type<Another_type, Weight_type> &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator<=(const Weighted_type<Value_type, Weight_type>& V1,
+           const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type>
-bool operator<=(const Weighted_type<Value_type, Weight_type> &V1,
-                const Value_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator<=(const Weighted_type<Value_type, Weight_type>& V1,
+           const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
-bool operator==(const Weighted_type<Value_type, Weight_type> &V1,
-                const Weighted_type<Another_type, Weight_type> &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator==(const Weighted_type<Value_type, Weight_type>& V1,
+           const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type>
-bool operator==(const Weighted_type<Value_type, Weight_type> &V1,
-                const Value_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator==(const Weighted_type<Value_type, Weight_type>& V1,
+           const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
-bool operator!=(const Weighted_type<Value_type, Weight_type> &V1,
-                const Weighted_type<Another_type, Weight_type> &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator!=(const Weighted_type<Value_type, Weight_type>& V1,
+           const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type>
-bool operator!=(const Weighted_type<Value_type, Weight_type> &V1,
-                const Value_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator!=(const Weighted_type<Value_type, Weight_type>& V1,
+           const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
-bool operator>(const Weighted_type<Value_type, Weight_type> &V1,
-               const Weighted_type<Another_type, Weight_type> &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator>(const Weighted_type<Value_type, Weight_type>& V1,
+          const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type>
-bool operator>(const Weighted_type<Value_type, Weight_type> &V1,
-               const Value_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator>(const Weighted_type<Value_type, Weight_type>& V1,
+          const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
-bool operator>=(const Weighted_type<Value_type, Weight_type> &V1,
-                const Weighted_type<Another_type, Weight_type> &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator>=(const Weighted_type<Value_type, Weight_type>& V1,
+           const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type>
-bool operator>=(const Weighted_type<Value_type, Weight_type> &V1,
-                const Value_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+bool
+operator>=(const Weighted_type<Value_type, Weight_type>& V1,
+           const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator+(const Weighted_type<Value_type, Weight_type> &V1,
-          const Weighted_type<Another_type, Weight_type> &V2);
+operator+(const Weighted_type<Value_type, Weight_type>& V1,
+          const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator+(const Weighted_type<Value_type, Weight_type> &V1,
-          const Another_type &V2);
+operator+(const Weighted_type<Value_type, Weight_type>& V1,
+          const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
-Weighted_type<Value_type, Weight_type> &
-operator+=(Weighted_type<Value_type, Weight_type> &V1, const Another_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+Weighted_type<Value_type, Weight_type>&
+operator+=(Weighted_type<Value_type, Weight_type>& V1, const Another_type& V2);
 
-template <class Value_type, class Weight_type>
-Weighted_type<Value_type, Weight_type> &
-operator++(Weighted_type<Value_type, Weight_type> &V1);
+template<class Value_type, class Weight_type>
+Weighted_type<Value_type, Weight_type>&
+operator++(Weighted_type<Value_type, Weight_type>& V1);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator-(const Weighted_type<Value_type, Weight_type> &V1,
-          const Weighted_type<Another_type, Weight_type> &V2);
+operator-(const Weighted_type<Value_type, Weight_type>& V1,
+          const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator-(const Weighted_type<Value_type, Weight_type> &V1,
-          const Another_type &V2);
+operator-(const Weighted_type<Value_type, Weight_type>& V1,
+          const Another_type& V2);
 
-template <class Value_type, class Weight_type>
-Weighted_type<Value_type, Weight_type> &
-operator--(Weighted_type<Value_type, Weight_type> &V1);
+template<class Value_type, class Weight_type>
+Weighted_type<Value_type, Weight_type>&
+operator--(Weighted_type<Value_type, Weight_type>& V1);
 
-template <class Value_type, class Weight_type, class Another_type>
-Weighted_type<Value_type, Weight_type> &
-operator-=(Weighted_type<Value_type, Weight_type> &V1, const Another_type &V2);
+template<class Value_type, class Weight_type, class Another_type>
+Weighted_type<Value_type, Weight_type>&
+operator-=(Weighted_type<Value_type, Weight_type>& V1, const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator*(const Weighted_type<Value_type, Weight_type> &V1,
-          const Weighted_type<Another_type, Weight_type> &V2);
+operator*(const Weighted_type<Value_type, Weight_type>& V1,
+          const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator*(const Weighted_type<Value_type, Weight_type> &V1, Another_type &V2);
+operator*(const Weighted_type<Value_type, Weight_type>& V1, Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator/(const Weighted_type<Value_type, Weight_type> &V1,
-          const Weighted_type<Another_type, Weight_type> &V2);
+operator/(const Weighted_type<Value_type, Weight_type>& V1,
+          const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator/(const Weighted_type<Value_type, Weight_type> &V1,
-          const Another_type &V2);
+operator/(const Weighted_type<Value_type, Weight_type>& V1,
+          const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator%(const Weighted_type<Value_type, Weight_type> &V1,
-          const Weighted_type<Another_type, Weight_type> &V2);
+operator%(const Weighted_type<Value_type, Weight_type>& V1,
+          const Weighted_type<Another_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator%(const Weighted_type<Value_type, Weight_type> &V1,
-          const Another_type &V2);
+operator%(const Weighted_type<Value_type, Weight_type>& V1,
+          const Another_type& V2);
 
-template <class Value_type, class Weight_type>
+template<class Value_type, class Weight_type>
 Weighted_type<Value_type, Weight_type>
-operator&&(const Weighted_type<Value_type, Weight_type> &V1,
-           const Weighted_type<Value_type, Weight_type> &V2);
+operator&&(const Weighted_type<Value_type, Weight_type>& V1,
+           const Weighted_type<Value_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator&&(const Weighted_type<Value_type, Weight_type> &V1,
-           const Another_type &V2);
+operator&&(const Weighted_type<Value_type, Weight_type>& V1,
+           const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator&&(const Another_type &V1,
-           const Weighted_type<Value_type, Weight_type> &V2);
+operator&&(const Another_type& V1,
+           const Weighted_type<Value_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type>
+template<class Value_type, class Weight_type>
 Weighted_type<Value_type, Weight_type>
-operator||(const Weighted_type<Value_type, Weight_type> &V1,
-           const Weighted_type<Value_type, Weight_type> &V2);
+operator||(const Weighted_type<Value_type, Weight_type>& V1,
+           const Weighted_type<Value_type, Weight_type>& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator||(const Weighted_type<Value_type, Weight_type> &V1,
-           const Another_type &V2);
+operator||(const Weighted_type<Value_type, Weight_type>& V1,
+           const Another_type& V2);
 
-template <class Value_type, class Weight_type, class Another_type>
+template<class Value_type, class Weight_type, class Another_type>
 Weighted_type<Value_type, Weight_type>
-operator||(const Another_type &V1,
-           const Weighted_type<Value_type, Weight_type> &V2);
+operator||(const Another_type& V1,
+           const Weighted_type<Value_type, Weight_type>& V2);
 
 // template<class Value_type, class Weight_type>
 // std::ostream&
@@ -216,68 +229,81 @@ operator||(const Another_type &V1,
 //------------------------------------------------------------------------------
 typedef Weighted_type<size_t, bool> Weighted_size;
 typedef Weighted_type<float, bool> Weighted_float;
+typedef Weighted_type<double, bool> Weighted_double;
 //------------------------------------------------------------------------------
 // Functors
 //------------------------------------------------------------------------------
-template <class Value_type, class Weight_type>
-class Weighted_type_functor_base {
+template<class Value_type, class Weight_type>
+class Weighted_type_functor_base
+{
 public:
   using Type = const Weighted_type<Value_type, Weight_type>;
-  Type operator()(const Type &Left, const Type &Right) const {
+  Type operator()(const Type& Left, const Type& Right) const
+  {
     return Left - Right;
   };
 };
 
-template <class Value_type, class Weight_type>
+template<class Value_type, class Weight_type>
 class Weighted_type_functor_addition
-    : public Weighted_type_functor_base<Value_type, Weight_type> {
+  : public Weighted_type_functor_base<Value_type, Weight_type>
+{
 public:
   using Type = Weighted_type<Value_type, Weight_type>;
-  Type operator()(const Type &Left, const Type &Right) const {
+  Type operator()(const Type& Left, const Type& Right) const
+  {
     return Left + Right;
   };
 };
 
-template <class Value_type, class Weight_type>
+template<class Value_type, class Weight_type>
 class Weighted_type_functor_subtraction
-    : public Weighted_type_functor_base<Value_type, Weight_type> {
+  : public Weighted_type_functor_base<Value_type, Weight_type>
+{
 public:
   using Type = Weighted_type<Value_type, Weight_type>;
-  Type operator()(const Type &Left, const Type &Right) const {
+  Type operator()(const Type& Left, const Type& Right) const
+  {
     return Left - Right;
   };
 };
 
-template <class Value_type, class Weight_type>
+template<class Value_type, class Weight_type>
 class Weighted_type_functor_multiplication
-    : public Weighted_type_functor_base<Value_type, Weight_type> {
+  : public Weighted_type_functor_base<Value_type, Weight_type>
+{
 public:
   using Type = Weighted_type<Value_type, Weight_type>;
-  Type operator()(const Type &Left, const Type &Right) const {
+  Type operator()(const Type& Left, const Type& Right) const
+  {
     return Left * Right;
   };
 };
 
-template <class Value_type, class Weight_type>
+template<class Value_type, class Weight_type>
 class Weighted_type_functor_division
-    : public Weighted_type_functor_base<Value_type, Weight_type> {
+  : public Weighted_type_functor_base<Value_type, Weight_type>
+{
 public:
   using Type = Weighted_type<Value_type, Weight_type>;
-  Type operator()(const Type &Left, const Type &Right) const {
+  Type operator()(const Type& Left, const Type& Right) const
+  {
     return Left * Right;
   };
 };
 
-template <class Value_type, class Weight_type>
+template<class Value_type, class Weight_type>
 class Weighted_typeFunctorModulus
-    : public Weighted_type_functor_base<Value_type, Weight_type> {
+  : public Weighted_type_functor_base<Value_type, Weight_type>
+{
 public:
   using Type = Weighted_type<Value_type, Weight_type>;
-  Type operator()(const Type &Left, const Type &Right) const {
+  Type operator()(const Type& Left, const Type& Right) const
+  {
     return Left * Right;
   };
 };
 //------------------------------------------------------------------------------
-#include "weighted.cpp"
+#include "weighted.tpp"
 
 #endif
