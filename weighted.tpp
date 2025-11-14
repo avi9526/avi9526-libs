@@ -90,9 +90,9 @@ Weighted_type<Value_type, Weight_type>::Average_from(
   Weighted_type<Value_type, Weight_type> W1,
   Weighted_type<Value_type, Weight_type> W2)
 {
-  Weighted_base<Weight_type>::Weight() = W1 & W2;
-  _Value = (W1._Value * W1._Weight.Value() + W2._Value * W2._Weight.Value()) /
-           (W1._Weight.Value() + W2._Weight.Value());
+  Weighted_base<Weight_type>::Weight() = W1 * W2;
+  _Value = (W1._Value * W1._Weight() + W2._Value * W2._Weight()) /
+           (W1._Weight() + W2._Weight());
 };
 
 template<class Value_type, class Weight_type>
